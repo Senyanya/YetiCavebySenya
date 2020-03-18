@@ -18,10 +18,17 @@ $Items= array(
 	
 $rows=6;
 $columns=4;
-
-function myPrice(){
-	
+function myPrice($price){
+	$price = ceil($price);
+	if($price<1000){
+		return $price;
+	}
+	else{
+		$price=number_format($price,0," ", " ");
+		return $price . "<b class='rub'>p</b>";
+	}
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -103,8 +110,8 @@ function myPrice(){
 					<h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $item["Название"] ?></a></h3>
 					<div class="lot__state">
                         <div class="lot__rate">
-					<span class="lot__amount"><?= $item["Цена"] ?> </span>
-					<span class="lot__cost"><?= $item["Цена"] ?><b class="rub">р</b></span>
+					<span class="lot__amount">Стартовая цена </span>
+					<span class="lot__cost" id="cost" ><?= myPrice($item["Цена"])?></span>
 					</div>
 								<div class="lot__timer timer">
 									12:23
