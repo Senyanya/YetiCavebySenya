@@ -1,13 +1,13 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = ''; // укажите здесь ваше имя
-$Category[0]=array("Категория"=>"Доски и лыжи");
-$Category[1]=array("Категория"=>"Крепления");
-$Category[2]=array("Категория"=>"Ботинки");
-$Category[3]=array("Категория"=>"Одежда");
-$Category[4]=array("Категория"=>"Инструменты");
-$Category[5]=array("Категория"=>"Разное");
+$user_name = 'Senya'; // укажите здесь ваше имя
+$Category=array("boards"=>"Доски и лыжи",
+"attachment"=>"Крепления",
+"boots"=>"Ботинки",
+"clothing"=>"Одежда",
+"tools"=>"Инструменты",
+"other"=>"Разное");
 $Items= array( 
 	array("Название"=>"2014 Rossingnol District Snowboard", "Категория"=>"Доски и лыжи", "Цена"=>"10999", "URL картинки"=>"img/lot-1.jpg"),
 	array("Название"=>"DC Ply Mens 2016/2017 Snowboard", "Категория"=>"Доски и лыжи", "Цена"=>"159999", "URL картинки"=>"img/lot-2.jpg"),
@@ -74,12 +74,12 @@ $columns=4;
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
            <?php
-				for($i=0;$i<count($Category); $i++): ?>
+				foreach($Category as $i=>$z): ?>
 
-					<li class="promo__item promo__item--boards">
-							<a class="promo__link" href="pages/all-lots.html"> <?= $Category[$i]["Категория"] ?></a>
+					<li class="promo__item promo__item--<?= $i?>">
+							<a class="promo__link" href="pages/all-lots.html"> <?= $z ?></a>
 					</li>
-			<?php endfor; ?>
+			<?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
