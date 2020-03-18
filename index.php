@@ -18,6 +18,10 @@ $Items= array(
 	
 $rows=6;
 $columns=4;
+
+function myPrice(){
+	
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -89,18 +93,18 @@ $columns=4;
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
            <?php
-				for ($i=0; $i<$rows; $i++): ?>
+				foreach ($Items as $item): ?>
 					<li class="lots__item lot">
 							<div class="lot__image">
-					<img src="<?= $Items[$i]["URL картинки"] ?>" width="350" height="260">
+					<img src="<?= $item["URL картинки"] ?>" width="350" height="260">
 					</div>
 							<div class="lot__info">
-					<span class="lot__category"><?= $Items[$i]["Категория"]?></span>
-					<h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $Items[$i]["Название"] ?></a></h3>
+					<span class="lot__category"><?= $item["Категория"]?></span>
+					<h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $item["Название"] ?></a></h3>
 					<div class="lot__state">
                         <div class="lot__rate">
-					<span class="lot__amount"><?= $Items[$i]["Цена"] ?> </span>
-					<span class="lot__cost"><?= $Items[$i]["Цена"] ?><b class="rub">р</b></span>
+					<span class="lot__amount"><?= $item["Цена"] ?> </span>
+					<span class="lot__cost"><?= $item["Цена"] ?><b class="rub">р</b></span>
 					</div>
 								<div class="lot__timer timer">
 									12:23
@@ -108,7 +112,7 @@ $columns=4;
 							</div>
 						</div>
 						</li>
-					<?php endfor; ?>
+					<?php endforeach; ?>
 
         </ul>
     </section>
@@ -119,12 +123,13 @@ $columns=4;
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
 			<?php 
-				for($i=0;$i<count($Category); $i++): ?>
-					<li class="nav__item">
-						<a href="pages/all-lots.html"><?= $Category[$i]["Категория"] ?></a>
+				foreach($Category as $i=>$z): ?>
+
+					<li class="promo__item promo__item--<?= $i?>">
+							<a class="promo__link" href="pages/all-lots.html"> <?= $z ?></a>
 					</li>
 				
-			<?php endfor; ?>
+			<?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
