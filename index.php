@@ -4,7 +4,8 @@ include 'functions.php';
 $title_name="Главная";
 $page_content = include_template('index.php', array(
     'Items' => $Items,
-    'Category' => $Category
+    'Category' => $Category,
+	'timer'=> lot_timer()
 ));
 $layout_content = include_template('layout.php', array(
     'Category' => $Сategory,

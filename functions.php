@@ -49,5 +49,16 @@ function include_template($name, $data) {
     $result = ob_get_clean();
 
     return $result;
-};
+}
+
+function lot_timer(){
+	$now= time();   
+	$tomorrow=strtotime("tomorrow");
+	$dif=$tomorrow-$now;
+    $hours = floor($dif/3600); 
+	$min=floor (($dif%3600)/60);
+	$timer= sprintf("%02d:%02d", $hours, $min); 
+    return $timer;
+    
+}
 ?>

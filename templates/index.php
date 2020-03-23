@@ -33,7 +33,7 @@
 					<span class="lot__cost" id="cost" ><?= myPrice($item["Цена"],true)?></span>
 					</div>
 								<div class="lot__timer timer">
-									12:23
+									<?=$timer; ?>
 								</div>
 							</div>
 						</div>
